@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Search Results</title>
+    <style>
+      body {
+        background-image: url("{{ url_for('static', filename='images/background.jpg') }}");
+        background-size: cover;
+        color: white;
+        font-family: Arial, sans-serif;
+      }
+      h1 {
+        text-align: center;
+        margin-top: 50px;
+      }
+      ul {
+        list-style-type: none;
+        padding: 0;
+        text-align: center;
+      }
+      li {
+        margin: 10px 0;
+      }
+      a {
+        color: #00f;
+        text-decoration: none;
+        font-size: 20px;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Search Results</h1>
+    <ul>
+      {% for video in videos %}
+        <li><a href="{{ url_for('play_video', filename=video) }}">{{ video }}</a></li>
+      {% endfor %}
+    </ul>
+    <a href="/">Back to Search</a>
+  </body>
+</html>
